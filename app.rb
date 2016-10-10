@@ -5,26 +5,21 @@ get '/' do
 end
 
 get '/secret' do
-  "Butt headed woman, got a butt headed woman"
+  "Secret"
 end
 
-
-get '/secret1' do
-  "Marmot committee"
-end
 
 get '/random-cat' do
   @name = ["Amigo", "Oscar", "Viking"].sample
   erb(:index)
 end
 
-get '/named-cat' do
-  p params
-  @name = params[:name]
-  erb(:index)
+get '/cat-form' do
+  erb :cat_form
 end
 
-get '/cat_form' do
+post '/named-cat' do
   p params
-  erb(:cat_form)
+  @name = params[:name]
+  erb :index
 end
